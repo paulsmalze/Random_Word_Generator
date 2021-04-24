@@ -9,3 +9,7 @@ def randomWord(request):
     request.session['word'] = get_random_string(length=14)
     request.session['count'] += 1
     return render(request, 'index.html')
+
+def reset(request):
+    request.session.flush()
+    return redirect('/random_word')
